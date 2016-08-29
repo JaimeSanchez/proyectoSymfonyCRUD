@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_horizonta_inline_layout.html.twig' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-10">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-cloud-upload bigIcon"></i><span>Upload SDS</span>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-10 col-centered">                        
+                        {{ form_start(form) }}
+                            {{ form_widget(form) }}  
+                            {{form_row(form.file)}}
+                        
+                        
+                        <div class="panel-footer">
+                            <input type="submit" value="Save" />
+                        </div>
+
+                            
+                        {{ form_end(form) }}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/vendor/bootstrap-filestyle/src/bootstrap-filestyle.min.js')}}" ></script>
+<script>
+$(":file").filestyle({placeholder: "No file", iconName: "fa fa-upload", buttonText: ""});
+</script>
+{% endblock %}
